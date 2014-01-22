@@ -1,4 +1,3 @@
-
 #import "Zuckerkit.h"
 #import "Zuckerkeys.h"
 
@@ -88,7 +87,7 @@ NSString *NSStringFromFBSessionState(FBSessionState state)
     
     self.openBlock = completionBlock;
     
-    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email"] allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self sessionStateChanged:session state:status error:error open:YES permissions:NO];
         });
